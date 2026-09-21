@@ -5,7 +5,7 @@ Answer : The practical difference between WSGI and ASGI is that WSGI is designed
 For example, imagine 100 users request data from a slow external API at the same time. With a traditional synchronous WSGI setup, requests may have to wait for available workers while each worker waits for the API response. With FastAPI and ASGI, an async request can pause while waiting for the API, allowing the server to handle other requests during that time. This means FastAPI can efficiently handle many concurrent I/O-bound requests, although the actual number still depends on the server's workers, CPU, memory, and workload.
 
 Question 2: If you remove the : int type hint from item_id, what changes in how FastAPI treats a request to /items/abc?
-Answer :If we define the route as /items/{item_id} without the : int type hint, FastAPI treats item_id as a string by default. For example, /items/abc will be accepted, and the value of item_id will be "abc". But if we use item_id: int, FastAPI expects a number, so /items/abc will return a 422 validation error because "abc" cannot be converted into an integer. The type hint therefore tells FastAPI what type of data it should expect and validate from the URL.
+Answer :If we define the route as /items/{item_id} without the : int type hint, FastAPI treats item_id as a string by default. For example, /items/abc will be accepted, and the value of item_id will be "abc". But if we use item_id: int, FastAPI expects a number, so /items/abc will return a 422 validation error because "abc" cannot be converted into an integer. The type hint therefore tells FastAPI what type of data it should expect and validate from the URL .
 
 
 
