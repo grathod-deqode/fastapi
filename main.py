@@ -10,3 +10,7 @@ def home() :
 @app.get("/items/{item_id}")
 def get_items(item_id : int):
     return {"item_id" : item_id}
+
+@app.get("/search")
+def search(q : str = ""):
+    return { "search " : q }
