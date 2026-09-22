@@ -3,6 +3,17 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+
+class Product :
+    name : str
+    price : float
+    availabel : bool 
+    tag : list[str] = []
+
+    
+
+
 @app.get("/")
 def welcome_pydantic():
     return "welcome pydantic"
+
